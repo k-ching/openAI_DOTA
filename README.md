@@ -9,7 +9,7 @@ This repository contains the code and data required to replicate the findings, f
 ## 📂 Repository Structure
 
 * `code/`: Jupyter notebooks for data acquisition, processing, and econometrics.
-* `data/processed/`: The final event-level dataset (`tf_events_final.csv`) used for the regression analysis ($N=34,799$).
+* `data/processed/`: The final event-level dataset (`tf_events_final-1.csv`) used for the regression analysis ($N=34,799$).
 * `data/raw/`: Destination folder for raw JSON replays (not included due to size).
 
 ## 🚀 Quick Replication (Results Only)
