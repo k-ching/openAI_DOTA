@@ -1,43 +1,56 @@
-# Replication Package: Emergent Risk Asymmetry in AI Self-Play
+Replication Package: Behavioral Transparency in Multi-Agent RL
 
-**Submission:** Nature Machine Intelligence  
-**Authors:** Kenny Ching/University of Auckland 
-**License:** MIT  
+Submission: Nature Machine Intelligence
 
-This repository contains the code and data required to replicate the findings, figures, and statistical analyses presented in the manuscript *"Emergent risk asymmetry in high-dimensional multi-agent self-play"*.
+Authors: Kenny Ching / University of Auckland
 
-## 📂 Repository Structure
+License: MIT
 
-* `code/`: Jupyter notebooks for data acquisition, processing, and econometrics.
-* `data/processed/`: The final event-level dataset (`tf_events_final-1.csv`) used for the regression analysis ($N=34,799$).
-* `data/raw/`: Destination folder for raw JSON replays (not included due to size).
+This repository contains the code and data required to replicate the findings, figures, and statistical analyses presented in the manuscript "Behavioral Transparency in Multi-Agent RL: Strategic Decoupling and the Economic Optimization of Tactical Shocks".
+📂 Repository Structure
 
-## 🚀 Quick Replication (Results Only)
+    code/: Jupyter notebooks for data acquisition, processing, and econometrics.
+
+    data/processed/: The final unified event-level dataset (tf_events_master_unified.csv) used for the stratified regression analysis.
+
+    data/raw/: Destination folder for raw JSON replays (not included due to size).
+
+🚀 Quick Replication (Results Only)
 
 To reproduce the Figures and Tables from the paper without re-downloading the raw match data:
 
-1.  Clone this repository.
-2.  Install dependencies: `pip install -r requirements.txt`
-3.  Open `code/03_statistical_analysis.ipynb`.
-4.  Run all cells. The notebook will load the provided `tf_events_final.csv` and generate Figures 1–4.
+    Clone this repository.
 
-## 🛠 Full Replication (From Scratch)
+    Install dependencies: pip install -r requirements.txt
 
-If you wish to rebuild the dataset from the source API (OpenDota), follow this pipeline:
+    Open code/FINAL_OpenAI_DOTA_analysis.ipynb.
 
-1.  **Data Acquisition:**
-    * Run `code/01_data_download.ipynb`.
-    * *Note:* This script downloads ~2,300 match files (~5GB). It requires an active internet connection and may take several hours due to API rate limits.
-    
-2.  **Data Processing:**
-    * Run `code/02_data_processing.ipynb`.
-    * This parses the JSON files, calculates the "Gold Advantage Delta" ($\Delta G_{180s}$), and outputs `tf_events_final.csv`.
+    Run all cells. The notebook will load the provided tf_events_master_unified.csv and generate Tables 1–2 and Figures 1–5.
 
-3.  **Analysis:**
-    * Run `code/03_statistical_analysis.ipynb`.
+🛠 Full Replication (From Scratch)
 
-## 📊 Data Availability Statement
+If you wish to rebuild the dataset from the source API, follow this pipeline:
 
-The raw match replay files used in this study are the property of Valve Corporation. Due to repository size limits, the raw JSON files are not hosted here. However, they are publicly accessible via the OpenDota API. The `01_data_download.ipynb` script included in this repository automates the retrieval of the exact match cohort used in the study.
+    Data Acquisition:
 
-The **processed dataset** (`tf_events_final.csv`) is included in this repository and is sufficient for all statistical replication.
+        Run code/FINAL_OpenAI_DOTA_download.ipynb.
+
+        Note: This script downloads the raw match files (~5GB). It requires an active internet connection and may take several hours due to API rate limits.
+
+    Data Processing:
+
+        Run code/FINAL_OpenAI_DOTA_file_prep.ipynb.
+
+        This parses the JSON files, classifies positive and negative tactical shocks, and calculates the Strategic Yield (ΔGt​) across multiple temporal horizons (t∈{30,60,120,180} seconds) strictly following the conclusion of the combat event. It outputs tf_events_master_unified.csv.
+
+    Analysis:
+
+        Run code/FINAL_OpenAI_DOTA_analysis.ipynb.
+
+        This applies the Nearest Neighbors (k=5) matching algorithm to control for environmental geometries, and reproduces the full Econometric Convergence Map, Conversion Efficiency metrics, and density distributions.
+
+📊 Data Availability Statement
+
+The raw match replay files used in this study are the property of Valve Corporation. Due to repository size limits, the raw JSON files are not hosted here. However, they are publicly accessible via the OpenDota API. The FINAL_OpenAI_DOTA_download.ipynb script included in this repository automates the retrieval of the exact match cohort used in the study.
+
+The processed dataset (tf_events_master_unified.csv) is included in this repository and is sufficient for all statistical replication.
