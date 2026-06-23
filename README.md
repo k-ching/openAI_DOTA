@@ -31,8 +31,8 @@ Kenny Ching — School of Business, University of Auckland
 
 ```bibtex
 @article{ching2026behavioral,
-  title  = {Behavioral Transparency in Multi-Agent RL: Strategic Decoupling
-            and the Economic Optimization of Tactical Shocks},
+  title  = {What Looks Like Alien AI Behaviour Is Just Expert-Level
+Play: A Behavioural Economics Analysis of OpenAI Five},
   author = {Ching, Kenny},
   year   = {2026},
   note   = {Manuscript under review}
