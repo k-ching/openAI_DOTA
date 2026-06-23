@@ -1,6 +1,6 @@
-# Behavioral Transparency in Multi-Agent RL
+# What Looks Like Alien AI Behaviour Is Just Expert-Level
+Play: A Behavioural Economics Analysis of OpenAI Five
 
-**Strategic Decoupling and the Economic Optimization of Tactical Shocks**
 
 Kenny Ching — School of Business, University of Auckland
 
